@@ -5,7 +5,8 @@ const TOAST_REMOVE_DELAY = 1000000;
 
 let count = 0;
 
-function genId() {
+function genId() 
+{
   count = (count + 1) % Number.MAX_SAFE_INTEGER;
   return count.toString();
 }

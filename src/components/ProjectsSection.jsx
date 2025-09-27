@@ -3,32 +3,33 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "SaaS Landing Page",
-    description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS", "Supabase"],
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "Medical Chatbox ",
+    description: "AI based Project build with using LLMs,Langchain,Hugging Face",
+    image: "Health_chatbox.jpg",
+    tags: ["LLM", "LangChain", "Hugging Face"],
+    // demoUrl: "#",
+    githubUrl: "https://github.com/Deepa-S-Chebbi/medical_chatbox",
   },
   {
     id: 2,
-    title: "Orbit Analytics Dashboard",
+    title: "Fraud Detection",
     description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
-    image: "/projects/project2.png",
-    tags: ["TypeScript", "D3.js", "Next.js"],
-    demoUrl: "#",
-    githubUrl: "#",
+      "This is an end to end LLM project based on Hugging Face and Langchain. We are building a system that can guide regarding medical issues. User can ask any query regarding medical issues the model will provide with a quick response.",
+    image: "fraud.jpg",
+    tags: ["LLM", "Langchain", "Hugging Face"],
+    // demoUrl: "#",
+    githubUrl: " https://github.com/Deepa-S-Chebbi/Fraud_detection",
+   
   },
   {
     id: 3,
-    title: "E-commerce Platform",
+    title: "Osteoporosis Detection",
     description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "/projects/project3.png",
-    tags: ["React", "Node.js", "Stripe"],
-    demoUrl: "#",
-    githubUrl: "#",
+      "osteoporosis treatment is a bone disease characterized by reduced bone density and an increased risk of fractures. This projects uses Machine Learning algorithm and models such as convolutional neural networks (CNNs) and support vector machines (SVMs).",
+    image: "osteo.jpg",
+    tags: ["CNNs", "SVMs", "AI/ML"],
+    // demoUrl: "#",
+    githubUrl: "https://github.com/Deepa-S-Chebbi/osteoporosis-detection",
   },
 ];
 
@@ -75,13 +76,7 @@ export const ProjectsSection = () => {
                 </p>
                 <div className="flex justify-between items-center">
                   <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
+                   
                     <a
                       href={project.githubUrl}
                       target="_blank"
@@ -100,7 +95,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
-            href="https://github.com/machadop1407"
+            href="https://github.com/Deepa-S-Chebbi"
           >
             Check My Github <ArrowRight size={16} />
           </a>

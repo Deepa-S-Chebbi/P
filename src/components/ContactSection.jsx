@@ -7,28 +7,52 @@ import {
   Send,
   Twitch,
   Twitter,
+  Github
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import emailjs from "emailjs-com"
 
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      toast({
+    emailjs.send
+    ('service_3t7ori5', 'template_j56xvxv', formData, 'ye2DAdyfgsbSVd2gk')
+    
+    .then(
+      ( ) => {
+       toast({
         title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-      setIsSubmitting(false);
-    }, 1500);
+        description: "Thank you for your message. I'll get back to you soon.", 
+        });
+        setFormData({ name: "", email: "", message: "" });
+        setIsSubmitting(false);
+      },
+      (error) => {
+        toast({
+          title: "Error",
+          description: "There was an error sending your message. Please try again later.",
+          
+        });
+        setIsSubmitting(false);
+      }
+    );
   };
+    
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
@@ -56,27 +80,43 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium"> Email</h4>
                   <a
-                    href="mailto:hello@gmail.com"
+                    href="mailto:deepachebbi@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    hello@gmail.com
+                    deepachebbi@gmail.com
                   </a>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />{" "}
+                  <Linkedin  className="h-6 w-6 text-primary" />{" "}
                 </div>
                 <div>
-                  <h4 className="font-medium"> Phone</h4>
+                  <h4 className="font-medium"> Linkedin</h4>
                   <a
-                    href="tel:+11234567890"
+                    href="https://www.linkedin.com/in/deepa-s-chebbi/"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +1 (123) 456-7890
+                    linkedin.com/in/deepa-s-chebbi
                   </a>
                 </div>
               </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <Github  className="h-6 w-6 text-primary" />{" "}
+                </div>
+                <div>
+                  <h4 className="font-medium"> Linkedin</h4>
+                  <a
+                    href="https://github.com/Deepa-S-Chebbi"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    github.com/Deepa-S-Chebbi
+                  </a>
+                </div>
+              </div>
+
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <MapPin className="h-6 w-6 text-primary" />{" "}
@@ -84,7 +124,7 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium"> Location</h4>
                   <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Vancouver, BC, Canada
+                    India
                   </a>
                 </div>
               </div>
@@ -93,18 +133,16 @@ export const ContactSection = () => {
             <div className="pt-8">
               <h4 className="font-medium mb-4"> Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
-                <a href="#" target="_blank">
+                <a href="https://www.linkedin.com/in/deepa-s-chebbi/" target="_blank">
                   <Linkedin />
                 </a>
-                <a href="#" target="_blank">
-                  <Twitter />
+                <a href="mailto:deepachebbi@gmail.com" target="_blank">
+                  <Mail />
                 </a>
-                <a href="#" target="_blank">
-                  <Instagram />
+                <a href="https://github.com/Deepa-S-Chebbi" target="_blank">
+                  <Github />
                 </a>
-                <a href="#" target="_blank">
-                  <Twitch />
-                </a>
+              
               </div>
             </div>
           </div>
@@ -115,7 +153,7 @@ export const ContactSection = () => {
           >
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit = {handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
@@ -128,9 +166,11 @@ export const ContactSection = () => {
                   type="text"
                   id="name"
                   name="name"
+                  value= {formData.name}
+                  onChange = {handleChange}
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="Pedro Machado..."
+                  placeholder="Enter the name..."
                 />
               </div>
 
@@ -146,9 +186,11 @@ export const ContactSection = () => {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange = {handleChange}
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="john@gmail.com"
+                  placeholder="Enter the email..."
                 />
               </div>
 
@@ -163,9 +205,11 @@ export const ContactSection = () => {
                 <textarea
                   id="message"
                   name="message"
+                  value={formData.message}
+                  onChange = {handleChange}
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary resize-none"
-                  placeholder="Hello, I'd like to talk about..."
+                  placeholder="Message..."
                 />
               </div>
 
