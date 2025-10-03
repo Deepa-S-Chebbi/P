@@ -1,5 +1,5 @@
 import { Briefcase, Code, User } from "lucide-react";
-
+import pdf from '../assets/C.V.pdf';
 export const AboutSection = () => {
   return (
     <section id="about" className="py-24 px-4 relative">
@@ -28,7 +28,7 @@ export const AboutSection = () => {
               </a>
 
               <a
-                href=" /src/assests/C.V.pdf"
+                href=pdf
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
                 Download CV
