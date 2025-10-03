@@ -1,4 +1,6 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import osteoImg from '../assets/osteo.jpg';
+
 
 const projects = [
   {
@@ -26,7 +28,7 @@ const projects = [
     title: "Osteoporosis Detection",
     description:
       "osteoporosis treatment is a bone disease characterized by reduced bone density and an increased risk of fractures. This projects uses Machine Learning algorithm and models such as convolutional neural networks (CNNs) and support vector machines (SVMs).",
-    image:"./assets/osteo.jpg",
+      image: osteoImg,
     tags: ["CNNs", "SVMs", "AI/ML"],
     // demoUrl: "#",
     githubUrl: "https://github.com/Deepa-S-Chebbi/osteoporosis-detection",
