@@ -1,13 +1,15 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import osteoImg from '../assets/osteo.jpg';
-
+import fraudImg from '../assets/fraud.jpg';
+import healthImg from '../assets/Health_chatbox.jpg';
+  
 
 const projects = [
   {
     id: 1,
     title: "Medical Chatbox ",
     description: "AI based Project build with using LLMs,Langchain,Hugging Face",
-    image: "Health_chatbox.jpg",
+    image: healthImg,
     tags: ["LLM", "LangChain", "Hugging Face"],
     // demoUrl: "#",
     githubUrl: "https://github.com/Deepa-S-Chebbi/medical_chatbox",
@@ -17,7 +19,7 @@ const projects = [
     title: "Fraud Detection",
     description:
       "This is an end to end LLM project based on Hugging Face and Langchain. We are building a system that can guide regarding medical issues. User can ask any query regarding medical issues the model will provide with a quick response.",
-    image: "fraud.jpg",
+    image:fraudImg,
     tags: ["LLM", "Langchain", "Hugging Face"],
     // demoUrl: "#",
     githubUrl: " https://github.com/Deepa-S-Chebbi/Fraud_detection",
